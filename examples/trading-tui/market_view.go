@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"strings"
 
-	"cw-sdk-go/common"
 	"github.com/gdamore/tcell"
 	"github.com/rivo/tview"
+	"github.com/y3sh/cw-sdk-go/common"
 )
 
 type MarketView struct {

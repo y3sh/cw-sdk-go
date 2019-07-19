@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"cw-sdk-go/common"
+	"github.com/y3sh/cw-sdk-go/common"
 )
 
 type MarketDescr struct {

@@ -6,7 +6,7 @@ package ProtobufBroker
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import stream "cw-sdk-go/proto/stream"
+import stream "github.com/y3sh/cw-sdk-go/proto/stream"
 
 import io "io"
 

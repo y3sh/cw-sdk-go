@@ -5,9 +5,9 @@ import (
 	"math/rand"
 	"time"
 
-	"cw-sdk-go/common"
 	"github.com/cryptowatch/clock"
 	"github.com/juju/errors"
+	"github.com/y3sh/cw-sdk-go/common"
 )
 
 const maxDeltasCacheSize = 50

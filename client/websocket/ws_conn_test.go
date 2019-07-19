@@ -16,14 +16,14 @@ import (
 	"testing"
 	"time"
 
-	"cw-sdk-go/client/websocket/internal"
-	pbb "cw-sdk-go/proto/broker"
-	pbc "cw-sdk-go/proto/client"
-	pbm "cw-sdk-go/proto/markets"
-	pbs "cw-sdk-go/proto/stream"
 	"github.com/golang/protobuf/proto"
 	"github.com/gorilla/websocket"
 	"github.com/juju/errors"
+	"github.com/y3sh/cw-sdk-go/client/websocket/internal"
+	pbb "github.com/y3sh/cw-sdk-go/proto/broker"
+	pbc "github.com/y3sh/cw-sdk-go/proto/client"
+	pbm "github.com/y3sh/cw-sdk-go/proto/markets"
+	pbs "github.com/y3sh/cw-sdk-go/proto/stream"
 )
 
 type eventType int

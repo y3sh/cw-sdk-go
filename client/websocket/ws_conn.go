@@ -1,4 +1,4 @@
-package websocket // import "cw-sdk-go/client/websocket"
+package websocket // import "github.com/y3sh/cw-sdk-go/client/websocket"
 
 import (
 	"context"
@@ -10,12 +10,12 @@ import (
 	"strings"
 	"time"
 
-	"cw-sdk-go/client/websocket/internal"
-	pbc "cw-sdk-go/proto/client"
-	pbs "cw-sdk-go/proto/stream"
 	"github.com/golang/protobuf/proto"
 	"github.com/gorilla/websocket"
 	"github.com/juju/errors"
+	"github.com/y3sh/cw-sdk-go/client/websocket/internal"
+	pbc "github.com/y3sh/cw-sdk-go/proto/client"
+	pbs "github.com/y3sh/cw-sdk-go/proto/stream"
 	"honnef.co/go/tools/version"
 )
 

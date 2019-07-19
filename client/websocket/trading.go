@@ -1,7 +1,7 @@
 package websocket
 
 import (
-	"cw-sdk-go/common"
+	"github.com/y3sh/cw-sdk-go/common"
 )
 
 type tradeModule string

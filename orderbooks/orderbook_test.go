@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	"cw-sdk-go/common"
 	"github.com/juju/errors"
+	"github.com/y3sh/cw-sdk-go/common"
 )
 
 func TestOrderBook(t *testing.T) {

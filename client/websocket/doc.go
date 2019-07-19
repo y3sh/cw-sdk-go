@@ -112,7 +112,7 @@ API keys for the exchange, or the client will fall back on your API keys loaded 
 
 	import (
 		"cw-sdk-go"
-		"cw-sdk-go/common"
+		"github.com/y3sh/cw-sdk-go/common"
 	)
 
 	client, err := websocket.NewTradeClient(&websocket.TradeClientParams{

@@ -1,8 +1,8 @@
 package main
 
 import (
-	"cw-sdk-go/common"
 	"github.com/rivo/tview"
+	"github.com/y3sh/cw-sdk-go/common"
 )
 
 const (

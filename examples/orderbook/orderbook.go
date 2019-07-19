@@ -5,8 +5,8 @@ import (
 	"sort"
 	"strings"
 
-	"cw-sdk-go/common"
 	"github.com/fatih/color"
+	"github.com/y3sh/cw-sdk-go/common"
 )
 
 var (

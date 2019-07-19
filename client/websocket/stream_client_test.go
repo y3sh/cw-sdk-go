@@ -4,10 +4,10 @@ import (
 	"testing"
 	"time"
 
-	"cw-sdk-go/client/websocket/internal"
-	"cw-sdk-go/common"
-	pbm "cw-sdk-go/proto/markets"
-	pbs "cw-sdk-go/proto/stream"
+	"github.com/y3sh/cw-sdk-go/client/websocket/internal"
+	"github.com/y3sh/cw-sdk-go/common"
+	pbm "github.com/y3sh/cw-sdk-go/proto/markets"
+	pbs "github.com/y3sh/cw-sdk-go/proto/stream"
 
 	"github.com/golang/protobuf/proto"
 	"github.com/gorilla/websocket"

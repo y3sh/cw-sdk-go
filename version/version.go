@@ -1,4 +1,4 @@
-package version // import "cw-sdk-go/version"
+package version // import "github.com/y3sh/cw-sdk-go/version"
 
 const (
 	Version = "1.0.1"

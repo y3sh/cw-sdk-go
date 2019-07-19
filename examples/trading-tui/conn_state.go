@@ -3,7 +3,7 @@ package main
 import (
 	"sync"
 
-	"cw-sdk-go/client/websocket"
+	"github.com/y3sh/cw-sdk-go/client/websocket"
 )
 
 type ConnComponent int

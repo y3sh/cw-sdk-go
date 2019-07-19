@@ -7,10 +7,10 @@ import (
 	"os"
 	"os/signal"
 
-	"cw-sdk-go/client/rest"
-	"cw-sdk-go/client/websocket"
-	"cw-sdk-go/common"
-	"cw-sdk-go/orderbooks"
+	"github.com/y3sh/cw-sdk-go/client/rest"
+	"github.com/y3sh/cw-sdk-go/client/websocket"
+	"github.com/y3sh/cw-sdk-go/common"
+	"github.com/y3sh/cw-sdk-go/orderbooks"
 )
 
 var (
