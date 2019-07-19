@@ -1,0 +1,2239 @@
+{
+  "definitions": [
+    {
+      "protopath": "broker:/:broker.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "BrokerSessionMessage",
+            "fields": [
+              {
+                "id": 1,
+                "name": "session",
+                "type": "Session"
+              },
+              {
+                "id": 2,
+                "name": "anonymousTradingSession",
+                "type": "AnonymousTradingSession"
+              },
+              {
+                "id": 3,
+                "name": "marketId",
+                "type": "int64"
+              }
+            ],
+            "messages": [
+              {
+                "name": "Session",
+                "fields": [
+                  {
+                    "id": 1,
+                    "name": "userId",
+                    "type": "string"
+                  },
+                  {
+                    "id": 2,
+                    "name": "expires",
+                    "type": "int64"
+                  },
+                  {
+                    "id": 3,
+                    "name": "token",
+                    "type": "string"
+                  },
+                  {
+                    "id": 4,
+                    "name": "mfaToken",
+                    "type": "string"
+                  }
+                ]
+              },
+              {
+                "name": "AnonymousTradingSession",
+                "fields": [
+                  {
+                    "id": 1,
+                    "name": "exchange",
+                    "type": "string"
+                  },
+                  {
+                    "id": 2,
+                    "name": "token",
+                    "type": "string"
+                  },
+                  {
+                    "id": 3,
+                    "name": "expiration",
+                    "type": "int64"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "PlaceOrderRequest",
+            "fields": [
+              {
+                "id": 2,
+                "name": "order",
+                "type": "PrivateOrder"
+              },
+              {
+                "id": 3,
+                "name": "closingOrder",
+                "type": "PrivateOrder"
+              }
+            ]
+          },
+          {
+            "name": "PlaceOrderResult",
+            "fields": [
+              {
+                "id": 2,
+                "name": "order",
+                "type": "PrivateOrder"
+              },
+              {
+                "id": 1,
+                "name": "orderId",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "CancelOrderRequest",
+            "fields": [
+              {
+                "id": 2,
+                "name": "orderId",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "CancelOrderResult",
+            "fields": [
+              {
+                "id": 1,
+                "name": "orderId",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "ReplaceOrderRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "orderId",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "replacement",
+                "type": "PrivateOrder"
+              },
+              {
+                "id": 3,
+                "name": "replacementClosingOrder",
+                "type": "PrivateOrder"
+              }
+            ]
+          },
+          {
+            "name": "ClosePositionRequest",
+            "fields": [
+              {
+                "id": 2,
+                "name": "positionId",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "SyncRequest"
+          },
+          {
+            "name": "BrokerRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "id",
+                "type": "string"
+              },
+              {
+                "id": 7,
+                "name": "marketId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "placeOrderRequest",
+                "type": "PlaceOrderRequest"
+              },
+              {
+                "id": 3,
+                "name": "cancelOrderRequest",
+                "type": "CancelOrderRequest"
+              },
+              {
+                "id": 6,
+                "name": "replaceOrderRequest",
+                "type": "ReplaceOrderRequest"
+              },
+              {
+                "id": 4,
+                "name": "syncRequest",
+                "type": "SyncRequest"
+              },
+              {
+                "id": 5,
+                "name": "closePositionRequest",
+                "type": "ClosePositionRequest"
+              }
+            ]
+          },
+          {
+            "name": "OrdersUpdate",
+            "fields": [
+              {
+                "id": 1,
+                "name": "orders",
+                "type": "PrivateOrder",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "TradesUpdate",
+            "fields": [
+              {
+                "id": 1,
+                "name": "trades",
+                "type": "PrivateTrade",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "PositionsUpdate",
+            "fields": [
+              {
+                "id": 1,
+                "name": "positions",
+                "type": "PrivatePosition",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "BalancesUpdate",
+            "fields": [
+              {
+                "id": 1,
+                "name": "balances",
+                "type": "Balances",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "RequestResolutionUpdate",
+            "fields": [
+              {
+                "id": 1,
+                "name": "id",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "error",
+                "type": "int32"
+              },
+              {
+                "id": 3,
+                "name": "message",
+                "type": "string"
+              },
+              {
+                "id": 4,
+                "name": "placeOrderResult",
+                "type": "PlaceOrderResult"
+              },
+              {
+                "id": 5,
+                "name": "cancelOrderResult",
+                "type": "CancelOrderResult"
+              }
+            ]
+          },
+          {
+            "name": "AnonymousSessionStatusUpdate",
+            "fields": [
+              {
+                "id": 1,
+                "name": "expiration",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "token",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "SessionStatusUpdate",
+            "fields": [
+              {
+                "id": 1,
+                "name": "initialized",
+                "type": "bool"
+              },
+              {
+                "id": 2,
+                "name": "syncing",
+                "type": "bool"
+              },
+              {
+                "id": 3,
+                "name": "lastSyncTime",
+                "type": "int64"
+              },
+              {
+                "id": 4,
+                "name": "syncError",
+                "type": "int32"
+              }
+            ]
+          },
+          {
+            "name": "PermissionsUpdate",
+            "fields": [
+              {
+                "id": 1,
+                "name": "orderTypes",
+                "type": "PrivateOrder.Type",
+                "is_repeated": true,
+                "options": [
+                  {
+                    "name": "packed",
+                    "value": "false"
+                  }
+                ]
+              },
+              {
+                "id": 2,
+                "name": "fundingTypes",
+                "type": "FundingType",
+                "is_repeated": true,
+                "options": [
+                  {
+                    "name": "packed",
+                    "value": "false"
+                  }
+                ]
+              },
+              {
+                "id": 4,
+                "name": "agreements",
+                "type": "Agreement",
+                "is_repeated": true
+              },
+              {
+                "id": 5,
+                "name": "currencyPairAllowed",
+                "type": "bool"
+              },
+              {
+                "id": 6,
+                "name": "leverageLevels",
+                "type": "LeverageLevels"
+              },
+              {
+                "id": 7,
+                "name": "supportsOrderExpiry",
+                "type": "bool"
+              }
+            ],
+            "messages": [
+              {
+                "name": "Agreement",
+                "fields": [
+                  {
+                    "id": 1,
+                    "name": "key",
+                    "type": "string"
+                  },
+                  {
+                    "id": 2,
+                    "name": "body",
+                    "type": "string"
+                  }
+                ]
+              },
+              {
+                "name": "LeverageLevels",
+                "fields": [
+                  {
+                    "id": 1,
+                    "name": "buy",
+                    "type": "string",
+                    "is_repeated": true
+                  },
+                  {
+                    "id": 2,
+                    "name": "sell",
+                    "type": "string",
+                    "is_repeated": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "APIAccessorStatusUpdate",
+            "fields": [
+              {
+                "id": 1,
+                "name": "hasAccess",
+                "type": "bool"
+              },
+              {
+                "id": 2,
+                "name": "status",
+                "type": "int32"
+              },
+              {
+                "id": 3,
+                "name": "statusString",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "BrokerUpdateMessage",
+            "fields": [
+              {
+                "id": 11,
+                "name": "marketId",
+                "type": "int64"
+              },
+              {
+                "id": 1,
+                "name": "ordersUpdate",
+                "type": "OrdersUpdate"
+              },
+              {
+                "id": 2,
+                "name": "tradesUpdate",
+                "type": "TradesUpdate"
+              },
+              {
+                "id": 3,
+                "name": "balancesUpdate",
+                "type": "BalancesUpdate"
+              },
+              {
+                "id": 8,
+                "name": "positionsUpdate",
+                "type": "PositionsUpdate"
+              },
+              {
+                "id": 4,
+                "name": "requestResolutionUpdate",
+                "type": "RequestResolutionUpdate"
+              },
+              {
+                "id": 5,
+                "name": "anonymousSessionStatusUpdate",
+                "type": "AnonymousSessionStatusUpdate"
+              },
+              {
+                "id": 6,
+                "name": "permissionsUpdate",
+                "type": "PermissionsUpdate"
+              },
+              {
+                "id": 7,
+                "name": "sessionStatusUpdate",
+                "type": "SessionStatusUpdate"
+              },
+              {
+                "id": 9,
+                "name": "apiAccessorStatusUpdate",
+                "type": "APIAccessorStatusUpdate"
+              },
+              {
+                "id": 10,
+                "name": "authenticationResult",
+                "type": "ProtobufStream.AuthenticationResult"
+              },
+              {
+                "id": 12,
+                "name": "subscriptionResult",
+                "type": "ProtobufStream.SubscriptionResult"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "broker/private.proto"
+          },
+          {
+            "path": "stream/stream.proto"
+          }
+        ],
+        "package": {
+          "name": "ProtobufBroker"
+        }
+      }
+    },
+    {
+      "protopath": "broker:/:private.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "FundingType",
+            "enum_fields": [
+              {
+                "name": "Spot"
+              },
+              {
+                "name": "Margin",
+                "integer": 1
+              }
+            ]
+          },
+          {
+            "name": "PrivateOrder.Type",
+            "enum_fields": [
+              {
+                "name": "Market"
+              },
+              {
+                "name": "Limit",
+                "integer": 1
+              },
+              {
+                "name": "StopLoss",
+                "integer": 2
+              },
+              {
+                "name": "StopLossLimit",
+                "integer": 3
+              },
+              {
+                "name": "TakeProfit",
+                "integer": 4
+              },
+              {
+                "name": "TakeProfitLimit",
+                "integer": 5
+              },
+              {
+                "name": "StopLossTakeProfit",
+                "integer": 6
+              },
+              {
+                "name": "StopLossTakeProfitLimit",
+                "integer": 7
+              },
+              {
+                "name": "TrailingStopLoss",
+                "integer": 8
+              },
+              {
+                "name": "TrailingStopLossLimit",
+                "integer": 9
+              },
+              {
+                "name": "StopLossAndLimit",
+                "integer": 10
+              },
+              {
+                "name": "FillOrKill",
+                "integer": 11
+              },
+              {
+                "name": "SettlePosition",
+                "integer": 12
+              }
+            ]
+          },
+          {
+            "name": "PrivateOrder.PriceParamType",
+            "enum_fields": [
+              {
+                "name": "AbsoluteValue"
+              },
+              {
+                "name": "OffsetValue",
+                "integer": 1
+              },
+              {
+                "name": "PrecentageOffsetValue",
+                "integer": 2
+              }
+            ]
+          }
+        ],
+        "messages": [
+          {
+            "name": "PrivateOrder",
+            "fields": [
+              {
+                "id": 1,
+                "name": "id",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "time",
+                "type": "int64"
+              },
+              {
+                "id": 3,
+                "name": "price",
+                "type": "float"
+              },
+              {
+                "id": 4,
+                "name": "amount",
+                "type": "float"
+              },
+              {
+                "id": 5,
+                "name": "side",
+                "type": "int32"
+              },
+              {
+                "id": 6,
+                "name": "type",
+                "type": "Type"
+              },
+              {
+                "id": 7,
+                "name": "fundingType",
+                "type": "FundingType"
+              },
+              {
+                "id": 8,
+                "name": "priceParams",
+                "type": "PriceParam",
+                "is_repeated": true
+              },
+              {
+                "id": 9,
+                "name": "amountParam",
+                "type": "float"
+              },
+              {
+                "id": 16,
+                "name": "amountParamString",
+                "type": "string"
+              },
+              {
+                "id": 17,
+                "name": "amountFilledString",
+                "type": "string"
+              },
+              {
+                "id": 10,
+                "name": "leverage",
+                "type": "string"
+              },
+              {
+                "id": 11,
+                "name": "currentStop",
+                "type": "float"
+              },
+              {
+                "id": 12,
+                "name": "initialStop",
+                "type": "float"
+              },
+              {
+                "id": 18,
+                "name": "currentStopString",
+                "type": "string"
+              },
+              {
+                "id": 19,
+                "name": "initialStopString",
+                "type": "string"
+              },
+              {
+                "id": 13,
+                "name": "startTime",
+                "type": "int64"
+              },
+              {
+                "id": 14,
+                "name": "expireTime",
+                "type": "int64"
+              },
+              {
+                "id": 15,
+                "name": "rate",
+                "type": "float"
+              },
+              {
+                "id": 20,
+                "name": "hasClosingOrder",
+                "type": "bool"
+              },
+              {
+                "id": 21,
+                "name": "closingOrderType",
+                "type": "Type"
+              },
+              {
+                "id": 22,
+                "name": "closingOrderPriceParams",
+                "type": "PriceParam",
+                "is_repeated": true
+              }
+            ],
+            "messages": [
+              {
+                "name": "PriceParam",
+                "fields": [
+                  {
+                    "id": 1,
+                    "name": "value",
+                    "type": "float"
+                  },
+                  {
+                    "id": 3,
+                    "name": "valueString",
+                    "type": "string"
+                  },
+                  {
+                    "id": 2,
+                    "name": "type",
+                    "type": "PriceParamType"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "PrivateTrade",
+            "fields": [
+              {
+                "id": 7,
+                "name": "externalId",
+                "type": "string"
+              },
+              {
+                "id": 8,
+                "name": "orderId",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "time",
+                "type": "int64"
+              },
+              {
+                "id": 6,
+                "name": "timeMillis",
+                "type": "int64"
+              },
+              {
+                "id": 3,
+                "name": "price",
+                "type": "float"
+              },
+              {
+                "id": 9,
+                "name": "priceString",
+                "type": "string"
+              },
+              {
+                "id": 4,
+                "name": "amount",
+                "type": "float"
+              },
+              {
+                "id": 10,
+                "name": "amountString",
+                "type": "string"
+              },
+              {
+                "id": 5,
+                "name": "side",
+                "type": "int32"
+              },
+              {
+                "id": 1,
+                "name": "id",
+                "type": "int64"
+              }
+            ]
+          },
+          {
+            "name": "PrivatePosition",
+            "fields": [
+              {
+                "id": 1,
+                "name": "id",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "time",
+                "type": "int64"
+              },
+              {
+                "id": 3,
+                "name": "side",
+                "type": "int32"
+              },
+              {
+                "id": 4,
+                "name": "avgPrice",
+                "type": "float"
+              },
+              {
+                "id": 9,
+                "name": "avgPriceString",
+                "type": "string"
+              },
+              {
+                "id": 5,
+                "name": "amountOpen",
+                "type": "float"
+              },
+              {
+                "id": 6,
+                "name": "amountClosed",
+                "type": "float"
+              },
+              {
+                "id": 10,
+                "name": "amountOpenString",
+                "type": "string"
+              },
+              {
+                "id": 11,
+                "name": "amountClosedString",
+                "type": "string"
+              },
+              {
+                "id": 7,
+                "name": "orderIds",
+                "type": "string",
+                "is_repeated": true
+              },
+              {
+                "id": 8,
+                "name": "tradeIds",
+                "type": "string",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "Balance",
+            "fields": [
+              {
+                "id": 1,
+                "name": "currency",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "amount",
+                "type": "float"
+              },
+              {
+                "id": 3,
+                "name": "amountString",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "Balances",
+            "fields": [
+              {
+                "id": 1,
+                "name": "fundingType",
+                "type": "FundingType"
+              },
+              {
+                "id": 2,
+                "name": "balances",
+                "type": "Balance",
+                "is_repeated": true
+              }
+            ],
+            "reserved_ids": [
+              3,
+              4
+            ]
+          }
+        ],
+        "package": {
+          "name": "ProtobufBroker"
+        }
+      }
+    },
+    {
+      "protopath": "client:/:client.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "APIAuthenticationMessage.Source",
+            "enum_fields": [
+              {
+                "name": "UNKNOWN"
+              },
+              {
+                "name": "GOLANG_SDK",
+                "integer": 1
+              },
+              {
+                "name": "JAVASCRIPT_SDK",
+                "integer": 2
+              },
+              {
+                "name": "NODE_SDK",
+                "integer": 3
+              },
+              {
+                "name": "RUST_SDK",
+                "integer": 5
+              },
+              {
+                "name": "CW_WEB",
+                "integer": 4
+              }
+            ]
+          }
+        ],
+        "messages": [
+          {
+            "name": "ClientMessage",
+            "fields": [
+              {
+                "id": 1,
+                "name": "identification",
+                "type": "ClientIdentificationMessage"
+              },
+              {
+                "id": 2,
+                "name": "subscribe",
+                "type": "ClientSubscribeMessage"
+              },
+              {
+                "id": 3,
+                "name": "unsubscribe",
+                "type": "ClientUnsubscribeMessage"
+              },
+              {
+                "id": 4,
+                "name": "webAuthentication",
+                "type": "WebAuthenticationMessage"
+              },
+              {
+                "id": 5,
+                "name": "apiAuthentication",
+                "type": "APIAuthenticationMessage"
+              }
+            ]
+          },
+          {
+            "name": "ClientIdentificationMessage",
+            "fields": [
+              {
+                "id": 1,
+                "name": "useragent",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "revision",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "integration",
+                "type": "string"
+              },
+              {
+                "id": 4,
+                "name": "locale",
+                "type": "string"
+              },
+              {
+                "id": 5,
+                "name": "subscriptions",
+                "type": "string",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "WebAuthenticationMessage",
+            "fields": [
+              {
+                "id": 1,
+                "name": "identification",
+                "type": "ClientIdentificationMessage"
+              },
+              {
+                "id": 2,
+                "name": "token",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "nonce",
+                "type": "string"
+              },
+              {
+                "id": 4,
+                "name": "access_list",
+                "type": "string",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "TradeSessionAuth",
+            "fields": [
+              {
+                "id": 1,
+                "name": "api_key",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "api_secret",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "customer_id",
+                "type": "string"
+              },
+              {
+                "id": 4,
+                "name": "key_passphrase",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "TradeSubscription",
+            "fields": [
+              {
+                "id": 1,
+                "name": "marketId",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "auth",
+                "type": "TradeSessionAuth"
+              }
+            ]
+          },
+          {
+            "name": "StreamSubscription",
+            "fields": [
+              {
+                "id": 1,
+                "name": "resource",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "ClientSubscription",
+            "fields": [
+              {
+                "id": 1,
+                "name": "stream_subscription",
+                "type": "StreamSubscription"
+              },
+              {
+                "id": 2,
+                "name": "trade_subscription",
+                "type": "TradeSubscription"
+              }
+            ]
+          },
+          {
+            "name": "APIAuthenticationMessage",
+            "fields": [
+              {
+                "id": 1,
+                "name": "token",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "nonce",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "api_key",
+                "type": "string"
+              },
+              {
+                "id": 4,
+                "name": "source",
+                "type": "Source"
+              },
+              {
+                "id": 5,
+                "name": "version",
+                "type": "string"
+              },
+              {
+                "id": 6,
+                "name": "subscriptions",
+                "type": "string",
+                "is_repeated": true,
+                "options": [
+                  {
+                    "name": "deprecated",
+                    "value": "true"
+                  }
+                ]
+              },
+              {
+                "id": 7,
+                "name": "client_subscriptions",
+                "type": "ClientSubscription",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "ClientSessionMessage",
+            "fields": [
+              {
+                "id": 1,
+                "name": "session",
+                "type": "Session"
+              },
+              {
+                "id": 2,
+                "name": "anonymousTradingSession",
+                "type": "AnonymousTradingSession"
+              }
+            ],
+            "messages": [
+              {
+                "name": "Session",
+                "fields": [
+                  {
+                    "id": 1,
+                    "name": "userId",
+                    "type": "string"
+                  },
+                  {
+                    "id": 2,
+                    "name": "expires",
+                    "type": "int64"
+                  },
+                  {
+                    "id": 3,
+                    "name": "token",
+                    "type": "string"
+                  },
+                  {
+                    "id": 4,
+                    "name": "mfaToken",
+                    "type": "string"
+                  }
+                ]
+              },
+              {
+                "name": "AnonymousTradingSession",
+                "fields": [
+                  {
+                    "id": 1,
+                    "name": "exchange",
+                    "type": "string"
+                  },
+                  {
+                    "id": 2,
+                    "name": "token",
+                    "type": "string"
+                  },
+                  {
+                    "id": 3,
+                    "name": "expiration",
+                    "type": "int64"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "ClientSubscribeMessage",
+            "fields": [
+              {
+                "id": 1,
+                "name": "subscriptionKeys",
+                "type": "string",
+                "is_repeated": true,
+                "options": [
+                  {
+                    "name": "deprecated",
+                    "value": "true"
+                  }
+                ]
+              },
+              {
+                "id": 2,
+                "name": "subscriptions",
+                "type": "ClientSubscription",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "ClientUnsubscribeMessage",
+            "fields": [
+              {
+                "id": 1,
+                "name": "subscriptionKeys",
+                "type": "string",
+                "is_repeated": true,
+                "options": [
+                  {
+                    "name": "deprecated",
+                    "value": "true"
+                  }
+                ]
+              },
+              {
+                "id": 2,
+                "name": "subscriptions",
+                "type": "ClientSubscription",
+                "is_repeated": true
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "ProtobufClient"
+        }
+      }
+    },
+    {
+      "protopath": "markets:/:asset.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "AssetUpdateMessage",
+            "fields": [
+              {
+                "id": 1,
+                "name": "asset",
+                "type": "int32"
+              },
+              {
+                "id": 2,
+                "name": "usdVolumeUpdate",
+                "type": "AssetUSDVolumeUpdate"
+              }
+            ]
+          },
+          {
+            "name": "AssetUSDVolumeUpdate",
+            "fields": [
+              {
+                "id": 1,
+                "name": "volume",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "ProtobufMarkets"
+        }
+      }
+    },
+    {
+      "protopath": "markets:/:index.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "Index",
+            "fields": [
+              {
+                "id": 1,
+                "name": "id",
+                "type": "uint64"
+              },
+              {
+                "id": 2,
+                "name": "symbol",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "indexType",
+                "type": "string"
+              },
+              {
+                "id": 4,
+                "name": "cwIndex",
+                "type": "bool"
+              },
+              {
+                "id": 5,
+                "name": "exchangeId",
+                "type": "uint64"
+              },
+              {
+                "id": 6,
+                "name": "instrumentId",
+                "type": "uint64"
+              }
+            ]
+          },
+          {
+            "name": "IndexUpdateMessage",
+            "fields": [
+              {
+                "id": 1,
+                "name": "index",
+                "type": "Index"
+              },
+              {
+                "id": 2,
+                "name": "tickerUpdate",
+                "type": "TickerUpdate"
+              },
+              {
+                "id": 3,
+                "name": "intervalsUpdate",
+                "type": "IntervalsUpdate"
+              },
+              {
+                "id": 4,
+                "name": "summaryUpdate",
+                "type": "SummaryUpdate"
+              },
+              {
+                "id": 5,
+                "name": "sparklineUpdate",
+                "type": "SparklineUpdate"
+              }
+            ]
+          },
+          {
+            "name": "TickerUpdate",
+            "fields": [
+              {
+                "id": 1,
+                "name": "tickers",
+                "type": "Ticker",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "Ticker",
+            "fields": [
+              {
+                "id": 1,
+                "name": "value",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "timestamp",
+                "type": "int64"
+              },
+              {
+                "id": 3,
+                "name": "timestampNano",
+                "type": "int64"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "markets/market.proto"
+          }
+        ],
+        "package": {
+          "name": "ProtobufMarkets"
+        }
+      }
+    },
+    {
+      "protopath": "markets:/:market.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "Market",
+            "fields": [
+              {
+                "id": 3,
+                "name": "exchangeId",
+                "type": "uint64"
+              },
+              {
+                "id": 4,
+                "name": "currencyPairId",
+                "type": "uint64"
+              },
+              {
+                "id": 5,
+                "name": "marketId",
+                "type": "uint64"
+              },
+              {
+                "id": 1,
+                "name": "exchange",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "currencyPair",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "Order",
+            "fields": [
+              {
+                "id": 3,
+                "name": "priceStr",
+                "type": "string"
+              },
+              {
+                "id": 4,
+                "name": "amountStr",
+                "type": "string"
+              },
+              {
+                "id": 1,
+                "name": "price",
+                "type": "float"
+              },
+              {
+                "id": 2,
+                "name": "amount",
+                "type": "float"
+              }
+            ]
+          },
+          {
+            "name": "Trade",
+            "fields": [
+              {
+                "id": 11,
+                "name": "externalId",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "timestamp",
+                "type": "int64"
+              },
+              {
+                "id": 5,
+                "name": "timestampMillis",
+                "type": "int64"
+              },
+              {
+                "id": 10,
+                "name": "timestampNano",
+                "type": "int64"
+              },
+              {
+                "id": 8,
+                "name": "priceStr",
+                "type": "string"
+              },
+              {
+                "id": 9,
+                "name": "amountStr",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "price",
+                "type": "float"
+              },
+              {
+                "id": 4,
+                "name": "amount",
+                "type": "float"
+              },
+              {
+                "id": 6,
+                "name": "priceDouble",
+                "type": "double"
+              },
+              {
+                "id": 7,
+                "name": "amountDouble",
+                "type": "double"
+              },
+              {
+                "id": 1,
+                "name": "id",
+                "type": "int64"
+              }
+            ]
+          },
+          {
+            "name": "MarketUpdateMessage",
+            "fields": [
+              {
+                "id": 9,
+                "name": "market",
+                "type": "Market"
+              },
+              {
+                "id": 2,
+                "name": "orderBookUpdate",
+                "type": "OrderBookUpdate"
+              },
+              {
+                "id": 3,
+                "name": "orderBookDeltaUpdate",
+                "type": "OrderBookDeltaUpdate"
+              },
+              {
+                "id": 11,
+                "name": "orderBookSpreadUpdate",
+                "type": "OrderBookSpreadUpdate"
+              },
+              {
+                "id": 4,
+                "name": "tradesUpdate",
+                "type": "TradesUpdate"
+              },
+              {
+                "id": 5,
+                "name": "intervalsUpdate",
+                "type": "IntervalsUpdate"
+              },
+              {
+                "id": 6,
+                "name": "summaryUpdate",
+                "type": "SummaryUpdate"
+              },
+              {
+                "id": 7,
+                "name": "sparklineUpdate",
+                "type": "SparklineUpdate"
+              }
+            ],
+            "reserved_ids": [
+              8
+            ]
+          },
+          {
+            "name": "OrderBookUpdate",
+            "fields": [
+              {
+                "id": 4,
+                "name": "aggregationModulusStr",
+                "type": "string"
+              },
+              {
+                "id": 5,
+                "name": "seqNum",
+                "type": "int32"
+              },
+              {
+                "id": 1,
+                "name": "bids",
+                "type": "Order",
+                "is_repeated": true
+              },
+              {
+                "id": 2,
+                "name": "asks",
+                "type": "Order",
+                "is_repeated": true
+              },
+              {
+                "id": 3,
+                "name": "aggregationModulus",
+                "type": "float"
+              }
+            ]
+          },
+          {
+            "name": "OrderBookDeltaUpdate",
+            "fields": [
+              {
+                "id": 3,
+                "name": "aggregationModulus",
+                "type": "float"
+              },
+              {
+                "id": 4,
+                "name": "aggregationModulusStr",
+                "type": "string"
+              },
+              {
+                "id": 5,
+                "name": "seqNum",
+                "type": "int32"
+              },
+              {
+                "id": 1,
+                "name": "bids",
+                "type": "OrderDeltas"
+              },
+              {
+                "id": 2,
+                "name": "asks",
+                "type": "OrderDeltas"
+              }
+            ],
+            "messages": [
+              {
+                "name": "OrderDeltas",
+                "fields": [
+                  {
+                    "id": 1,
+                    "name": "set",
+                    "type": "Order",
+                    "is_repeated": true
+                  },
+                  {
+                    "id": 2,
+                    "name": "delta",
+                    "type": "Order",
+                    "is_repeated": true
+                  },
+                  {
+                    "id": 3,
+                    "name": "remove",
+                    "type": "float",
+                    "is_repeated": true,
+                    "options": [
+                      {
+                        "name": "packed",
+                        "value": "false"
+                      }
+                    ]
+                  },
+                  {
+                    "id": 4,
+                    "name": "removeStr",
+                    "type": "string",
+                    "is_repeated": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "OrderBookSpreadUpdate",
+            "fields": [
+              {
+                "id": 1,
+                "name": "timestamp",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "bid",
+                "type": "Order"
+              },
+              {
+                "id": 3,
+                "name": "ask",
+                "type": "Order"
+              }
+            ]
+          },
+          {
+            "name": "TradesUpdate",
+            "fields": [
+              {
+                "id": 1,
+                "name": "trades",
+                "type": "Trade",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "Interval",
+            "fields": [
+              {
+                "id": 1,
+                "name": "closetime",
+                "type": "int64"
+              },
+              {
+                "id": 4,
+                "name": "period",
+                "type": "int32"
+              },
+              {
+                "id": 2,
+                "name": "ohlc",
+                "type": "OHLC"
+              },
+              {
+                "id": 6,
+                "name": "volumeBaseStr",
+                "type": "string"
+              },
+              {
+                "id": 7,
+                "name": "volumeQuoteStr",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "volumeBase",
+                "type": "float"
+              },
+              {
+                "id": 5,
+                "name": "volumeQuote",
+                "type": "float"
+              }
+            ],
+            "messages": [
+              {
+                "name": "OHLC",
+                "fields": [
+                  {
+                    "id": 5,
+                    "name": "openStr",
+                    "type": "string"
+                  },
+                  {
+                    "id": 6,
+                    "name": "highStr",
+                    "type": "string"
+                  },
+                  {
+                    "id": 7,
+                    "name": "lowStr",
+                    "type": "string"
+                  },
+                  {
+                    "id": 8,
+                    "name": "closeStr",
+                    "type": "string"
+                  },
+                  {
+                    "id": 1,
+                    "name": "open",
+                    "type": "float"
+                  },
+                  {
+                    "id": 2,
+                    "name": "high",
+                    "type": "float"
+                  },
+                  {
+                    "id": 3,
+                    "name": "low",
+                    "type": "float"
+                  },
+                  {
+                    "id": 4,
+                    "name": "close",
+                    "type": "float"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "IntervalsUpdate",
+            "fields": [
+              {
+                "id": 1,
+                "name": "intervals",
+                "type": "Interval",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "SummaryUpdate",
+            "fields": [
+              {
+                "id": 10,
+                "name": "lastStr",
+                "type": "string"
+              },
+              {
+                "id": 11,
+                "name": "highStr",
+                "type": "string"
+              },
+              {
+                "id": 12,
+                "name": "lowStr",
+                "type": "string"
+              },
+              {
+                "id": 13,
+                "name": "volumeBaseStr",
+                "type": "string"
+              },
+              {
+                "id": 14,
+                "name": "volumeQuoteStr",
+                "type": "string"
+              },
+              {
+                "id": 15,
+                "name": "changeAbsoluteStr",
+                "type": "string"
+              },
+              {
+                "id": 16,
+                "name": "changePercentStr",
+                "type": "string"
+              },
+              {
+                "id": 8,
+                "name": "numTrades",
+                "type": "int32"
+              },
+              {
+                "id": 2,
+                "name": "last",
+                "type": "float"
+              },
+              {
+                "id": 3,
+                "name": "high",
+                "type": "float"
+              },
+              {
+                "id": 4,
+                "name": "low",
+                "type": "float"
+              },
+              {
+                "id": 5,
+                "name": "volumeBase",
+                "type": "float"
+              },
+              {
+                "id": 9,
+                "name": "volumeQuote",
+                "type": "float"
+              },
+              {
+                "id": 6,
+                "name": "changeAbsolute",
+                "type": "float"
+              },
+              {
+                "id": 7,
+                "name": "changePercent",
+                "type": "float"
+              }
+            ],
+            "reserved_ids": [
+              1
+            ]
+          },
+          {
+            "name": "SparklineUpdate",
+            "fields": [
+              {
+                "id": 2,
+                "name": "time",
+                "type": "int64"
+              },
+              {
+                "id": 3,
+                "name": "price",
+                "type": "float"
+              },
+              {
+                "id": 4,
+                "name": "priceStr",
+                "type": "string"
+              }
+            ],
+            "reserved_ids": [
+              1
+            ]
+          }
+        ],
+        "package": {
+          "name": "ProtobufMarkets"
+        }
+      }
+    },
+    {
+      "protopath": "markets:/:pair.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "PairUpdateMessage",
+            "fields": [
+              {
+                "id": 1,
+                "name": "pair",
+                "type": "uint64"
+              },
+              {
+                "id": 2,
+                "name": "vwapUpdate",
+                "type": "PairVwapUpdate"
+              },
+              {
+                "id": 3,
+                "name": "performanceUpdate",
+                "type": "PairPerformanceUpdate"
+              },
+              {
+                "id": 4,
+                "name": "trendlineUpdate",
+                "type": "PairTrendlineUpdate"
+              }
+            ]
+          },
+          {
+            "name": "PairVwapUpdate",
+            "fields": [
+              {
+                "id": 1,
+                "name": "vwap",
+                "type": "double"
+              },
+              {
+                "id": 2,
+                "name": "timestamp",
+                "type": "int64"
+              }
+            ]
+          },
+          {
+            "name": "PairPerformanceUpdate",
+            "fields": [
+              {
+                "id": 1,
+                "name": "window",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "performance",
+                "type": "double"
+              }
+            ]
+          },
+          {
+            "name": "PairTrendlineUpdate",
+            "fields": [
+              {
+                "id": 1,
+                "name": "window",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "time",
+                "type": "int64"
+              },
+              {
+                "id": 3,
+                "name": "price",
+                "type": "string"
+              },
+              {
+                "id": 4,
+                "name": "volume",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "ProtobufMarkets"
+        }
+      }
+    },
+    {
+      "protopath": "stream:/:stream.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "AuthenticationResult.Status",
+            "enum_fields": [
+              {
+                "name": "UNKNOWN"
+              },
+              {
+                "name": "AUTHENTICATED",
+                "integer": 1
+              },
+              {
+                "name": "BAD_NONCE",
+                "integer": 2
+              },
+              {
+                "name": "BAD_TOKEN",
+                "integer": 3
+              },
+              {
+                "name": "TOKEN_EXPIRED",
+                "integer": 4
+              }
+            ]
+          }
+        ],
+        "messages": [
+          {
+            "name": "StreamMessage",
+            "fields": [
+              {
+                "id": 1,
+                "name": "authenticationResult",
+                "type": "AuthenticationResult"
+              },
+              {
+                "id": 5,
+                "name": "subscriptionResult",
+                "type": "SubscriptionResult"
+              },
+              {
+                "id": 6,
+                "name": "unsubscriptionResult",
+                "type": "UnsubscriptionResult"
+              },
+              {
+                "id": 7,
+                "name": "missedMessages",
+                "type": "MissedMessages"
+              },
+              {
+                "id": 2,
+                "name": "marketUpdate",
+                "type": "ProtobufMarkets.MarketUpdateMessage"
+              },
+              {
+                "id": 3,
+                "name": "pairUpdate",
+                "type": "ProtobufMarkets.PairUpdateMessage"
+              },
+              {
+                "id": 4,
+                "name": "assetUpdate",
+                "type": "ProtobufMarkets.AssetUpdateMessage"
+              },
+              {
+                "id": 8,
+                "name": "indexUpdate",
+                "type": "ProtobufMarkets.IndexUpdateMessage"
+              }
+            ]
+          },
+          {
+            "name": "AuthenticationResult",
+            "fields": [
+              {
+                "id": 1,
+                "name": "status",
+                "type": "Status"
+              }
+            ]
+          },
+          {
+            "name": "SubscriptionResult",
+            "fields": [
+              {
+                "id": 1,
+                "name": "subscribed",
+                "type": "string",
+                "is_repeated": true,
+                "options": [
+                  {
+                    "name": "deprecated",
+                    "value": "true"
+                  }
+                ]
+              },
+              {
+                "id": 2,
+                "name": "failed",
+                "type": "SubscribeError",
+                "is_repeated": true
+              },
+              {
+                "id": 3,
+                "name": "status",
+                "type": "SubscriptionStatus"
+              },
+              {
+                "id": 4,
+                "name": "subscriptions",
+                "type": "ProtobufClient.ClientSubscription",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "UnsubscriptionResult",
+            "fields": [
+              {
+                "id": 1,
+                "name": "unsubscribed",
+                "type": "string",
+                "is_repeated": true,
+                "options": [
+                  {
+                    "name": "deprecated",
+                    "value": "true"
+                  }
+                ]
+              },
+              {
+                "id": 2,
+                "name": "failed",
+                "type": "UnsubscribeError",
+                "is_repeated": true
+              },
+              {
+                "id": 3,
+                "name": "status",
+                "type": "SubscriptionStatus"
+              },
+              {
+                "id": 4,
+                "name": "subscriptions",
+                "type": "ProtobufClient.ClientSubscription",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "SubscribeError",
+            "fields": [
+              {
+                "id": 1,
+                "name": "key",
+                "type": "string",
+                "options": [
+                  {
+                    "name": "deprecated",
+                    "value": "true"
+                  }
+                ]
+              },
+              {
+                "id": 2,
+                "name": "error",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "subscription",
+                "type": "ProtobufClient.ClientSubscription"
+              }
+            ]
+          },
+          {
+            "name": "UnsubscribeError",
+            "fields": [
+              {
+                "id": 1,
+                "name": "key",
+                "type": "string",
+                "options": [
+                  {
+                    "name": "deprecated",
+                    "value": "true"
+                  }
+                ]
+              },
+              {
+                "id": 2,
+                "name": "error",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "subscription",
+                "type": "ProtobufClient.ClientSubscription"
+              }
+            ]
+          },
+          {
+            "name": "SubscriptionStatus",
+            "fields": [
+              {
+                "id": 1,
+                "name": "keys",
+                "type": "string",
+                "is_repeated": true,
+                "options": [
+                  {
+                    "name": "deprecated",
+                    "value": "true"
+                  }
+                ]
+              },
+              {
+                "id": 2,
+                "name": "subscriptions",
+                "type": "ProtobufClient.ClientSubscription",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "MissedMessages",
+            "fields": [
+              {
+                "id": 1,
+                "name": "numMissedMessages",
+                "type": "int64"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "client/client.proto"
+          },
+          {
+            "path": "markets/market.proto"
+          },
+          {
+            "path": "markets/index.proto"
+          },
+          {
+            "path": "markets/pair.proto"
+          },
+          {
+            "path": "markets/asset.proto"
+          }
+        ],
+        "package": {
+          "name": "ProtobufStream"
+        }
+      }
+    }
+  ]
+}
