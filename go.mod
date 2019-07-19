@@ -1,4 +1,4 @@
-module y3sh-cw-sdk-go
+module cw-sdk-go
 
 go 1.12
 
