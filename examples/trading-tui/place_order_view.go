@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strconv"
 
+	"cw-sdk-go/common"
 	"github.com/rivo/tview"
-	"y3sh-cw-sdk-go/common"
 )
 
 const (

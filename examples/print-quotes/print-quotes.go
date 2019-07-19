@@ -9,9 +9,9 @@ import (
 	"sort"
 	"strconv"
 
-	"y3sh-cw-sdk-go/client/rest"
-	"y3sh-cw-sdk-go/client/websocket"
-	"y3sh-cw-sdk-go/common"
+	"cw-sdk-go/client/rest"
+	"cw-sdk-go/client/websocket"
+	"cw-sdk-go/common"
 )
 
 var (

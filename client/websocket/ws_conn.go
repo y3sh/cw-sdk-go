@@ -1,4 +1,4 @@
-package websocket // import "y3sh-cw-sdk-go/client/websocket"
+package websocket // import "cw-sdk-go/client/websocket"
 
 import (
 	"context"
@@ -10,13 +10,13 @@ import (
 	"strings"
 	"time"
 
+	"cw-sdk-go/client/websocket/internal"
+	pbc "cw-sdk-go/proto/client"
+	pbs "cw-sdk-go/proto/stream"
 	"github.com/golang/protobuf/proto"
 	"github.com/gorilla/websocket"
 	"github.com/juju/errors"
 	"honnef.co/go/tools/version"
-	"y3sh-cw-sdk-go/client/websocket/internal"
-	pbc "y3sh-cw-sdk-go/proto/client"
-	pbs "y3sh-cw-sdk-go/proto/stream"
 )
 
 // The following errors are returned from wsConn, which applies to both

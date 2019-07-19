@@ -7,10 +7,10 @@ import (
 	"os"
 	"os/signal"
 
+	"cw-sdk-go/client/websocket"
+	"cw-sdk-go/common"
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
-	"y3sh-cw-sdk-go/client/websocket"
-	"y3sh-cw-sdk-go/common"
 )
 
 var (

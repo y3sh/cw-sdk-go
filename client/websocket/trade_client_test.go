@@ -6,15 +6,15 @@ import (
 	"testing"
 	"time"
 
+	"cw-sdk-go/client/websocket/internal"
+	"cw-sdk-go/common"
+	pbb "cw-sdk-go/proto/broker"
+	pbs "cw-sdk-go/proto/stream"
 	"github.com/golang/protobuf/proto"
 	"github.com/google/uuid"
 	"github.com/gorilla/websocket"
 	"github.com/juju/errors"
 	"github.com/stretchr/testify/assert"
-	"y3sh-cw-sdk-go/client/websocket/internal"
-	"y3sh-cw-sdk-go/common"
-	pbb "y3sh-cw-sdk-go/proto/broker"
-	pbs "y3sh-cw-sdk-go/proto/stream"
 )
 
 // The following orders/trades/balances already exist on broker

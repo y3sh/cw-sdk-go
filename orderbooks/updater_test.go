@@ -4,10 +4,10 @@ import (
 	"testing"
 	"time"
 
+	"cw-sdk-go/common"
 	"github.com/cryptowatch/clock"
 	"github.com/juju/errors"
 	"github.com/stretchr/testify/assert"
-	"y3sh-cw-sdk-go/common"
 )
 
 func TestUpdater(t *testing.T) {

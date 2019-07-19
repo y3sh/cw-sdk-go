@@ -1,7 +1,7 @@
 /*
 Package rest provides a client for using the Cryptowatch REST API.
 */
-package rest // import "y3sh-cw-sdk-go/client/rest"
+package rest // import "cw-sdk-go/client/rest"
 
 import (
 	"encoding/json"
@@ -9,7 +9,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"y3sh-cw-sdk-go/common"
+	"cw-sdk-go/common"
 
 	"github.com/juju/errors"
 )

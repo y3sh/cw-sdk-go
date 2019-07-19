@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
+	"cw-sdk-go/common"
 	"github.com/rivo/tview"
-	"y3sh-cw-sdk-go/common"
 )
 
 type MarketSelectorParams struct {

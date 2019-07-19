@@ -1,8 +1,8 @@
 package orderbooks
 
 import (
-	"y3sh-cw-sdk-go/client/rest"
-	"y3sh-cw-sdk-go/common"
+	"cw-sdk-go/client/rest"
+	"cw-sdk-go/common"
 )
 
 // OrderBookSnapshotGetter gets the up-to-date snapshot. Typically clients

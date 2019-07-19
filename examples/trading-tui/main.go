@@ -9,12 +9,12 @@ import (
 	"sort"
 	"strings"
 
+	"cw-sdk-go/client/rest"
+	"cw-sdk-go/client/websocket"
+	"cw-sdk-go/common"
 	"github.com/juju/errors"
 	"github.com/rivo/tview"
 	"github.com/spf13/pflag"
-	"y3sh-cw-sdk-go/client/rest"
-	"y3sh-cw-sdk-go/client/websocket"
-	"y3sh-cw-sdk-go/common"
 )
 
 var (

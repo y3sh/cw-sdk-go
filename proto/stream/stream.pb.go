@@ -6,8 +6,8 @@ package ProtobufStream
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import client "y3sh-cw-sdk-go/proto/client"
-import markets "y3sh-cw-sdk-go/proto/markets"
+import client "cw-sdk-go/proto/client"
+import markets "cw-sdk-go/proto/markets"
 
 import io "io"
 

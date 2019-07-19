@@ -64,7 +64,7 @@ Stream Client
 
 The stream client can be set up to process live market-level or pair-level data as follows:
 
-	import "y3sh-cw-sdk-go"
+	import "cw-sdk-go"
 
 	client, err := websocket.NewStreamClient(&websocket.StreamClientParams{
 		WSParams: &websocket.WSParams{
@@ -111,8 +111,8 @@ Each subscription represents a market you intend to trade and receive updates on
 API keys for the exchange, or the client will fall back on your API keys loaded in your Cryptowatch account.
 
 	import (
-		"y3sh-cw-sdk-go"
-		"y3sh-cw-sdk-go/common"
+		"cw-sdk-go"
+		"cw-sdk-go/common"
 	)
 
 	client, err := websocket.NewTradeClient(&websocket.TradeClientParams{
